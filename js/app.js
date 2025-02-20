@@ -3,6 +3,17 @@ let listaAmigos = [];
 
 function adicionar() {
     let nomeAmigo = document.getElementById('nome-amigo');
+
+    if(nomeAmigo.value == '') {
+        alert('Insira o nome do amigo!');
+        return;
+    }
+
+    if(listaAmigos.includes(nomeAmigo.value)) {
+        alert('Atenção, Nome duplicado!');
+        return;
+    }
+
     let amigosIncluidos = document.getElementById('lista-amigos');
     listaAmigos.push(nomeAmigo.value);
 
@@ -16,6 +27,12 @@ function adicionar() {
 
 
 function sortear() {
+
+    if(listaAmigos.length < 4) {
+        alert('Atenção, adicione pelo menos 4 amigos!');
+        return;
+    }
+
     embaralhar(listaAmigos);
     let listaSorteio = document.getElementById('lista-sorteio'); 
 
